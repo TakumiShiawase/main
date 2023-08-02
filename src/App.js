@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReaderPage from './page/ReaderPage'
+import { ColorProvider } from './context/ColorContext';
+import { SplitProvider } from './context/SplitContext';
+import { LineHeightProvider } from './context/LineHeightContext';
+import { FontSizeProvider } from './context/FontSizeContext';
+import { FontProvider } from './context/FontContext';
+import { ModalProvider } from './context/BookModalContext';
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <ModalProvider>
+        <ColorProvider>
+        <SplitProvider>
+        <LineHeightProvider>
+        <FontSizeProvider>
+        <FontProvider>
+          <ReaderPage />
+        </FontProvider>
+        </FontSizeProvider>
+        </LineHeightProvider>
+        </SplitProvider>
+        </ColorProvider>
+        </ModalProvider>
   );
 }
+
+
 
 export default App;
